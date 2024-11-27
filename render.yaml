@@ -1,0 +1,23 @@
+databases:
+  - name: cloudBdd
+    plan: free
+    databaseName: cloudBdd
+    user: root
+
+
+services:
+  - type: web
+    name: servlessCloud 
+    plan: free
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    repo: "https://github.com/Thamila92/servless_TP"   
+    envVars:
+       - key: DB_URL
+         fromService:
+           name: cloudBdd
+           property: connectionString
+
+
+       

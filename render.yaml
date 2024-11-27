@@ -1,7 +1,7 @@
 databases:
   - name: cloudBdd
     plan: free
-    databaseName: cloudBdd
+    databaseName: cloudbdd
     user: root
 
 
@@ -15,7 +15,7 @@ services:
     repo: "https://github.com/Thamila92/servless_TP"   
     envVars:
        - key: DB_URL
-         fromService:
+         fromDatabase:
            name: cloudBdd
            property: connectionString
 
